@@ -20,7 +20,7 @@ jobs:
           sed -i "s/\"version\": \".*\"/\"version\": \"${VERSION}\"/" custom_components/pumpwatch/manifest.json
       - name: Zip integration
         run: cd custom_components/pumpwatch && zip -r ../../pumpwatch.zip .
-      - uses: softprops/action-gh-release@v2
+      - uses: softprops/action-gh-release@v3
         with:
           files: pumpwatch.zip
           generate_release_notes: true
