@@ -1,0 +1,19 @@
+{
+  "domain": "pumpwatch",
+  "name": "PumpWatch",
+  "codeowners": [
+    "@azezsalami"
+  ],
+  "config_flow": true,
+  "dependencies": [],
+  "documentation": "https://github.com/azezsalami/pumpwatch",
+  "integration_type": "hub",
+  "iot_class": "cloud_polling",
+  "issue_tracker": "https://github.com/azezsalami/pumpwatch/issues",
+  "requirements": [
+    "beautifulsoup4",
+    "requests",
+    "ratelimit"
+  ],
+  "version": "1.0.0"
+}

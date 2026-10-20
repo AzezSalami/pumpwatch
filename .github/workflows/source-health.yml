@@ -1,0 +1,28 @@
+name: Data source health
+
+# The integration scrapes third-party sites, which change without notice.
+# This weekly check fails (and GitHub emails you) when a source stops answering,
+# so you know it is time to update the parser.
+on:
+  schedule:
+    - cron: "0 6 * * 1"
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Probe sources
+        run: |
+          fail=0
+          probe() {
+            code=$(curl -s -o /dev/null -w "%{http_code}" -A "Mozilla/5.0" --max-time 30 "$2")
+            echo "$1 -> HTTP $code"
+            [ "$code" = "200" ] || fail=1
+          }
+          probe "carbu.com location lookup" "https://carbu.com//commonFunctions/getlocation/controller.getlocation_JSON.php?location=1000&SHRT=1"
+          probe "carbu.com prediction page" "https://carbu.com/belgie//index.php/voorspellingen?p=M&C=E95"
+          probe "carbu.com official prices" "https://carbu.com/belgie/super95"
+          probe "Spain MINETUR API" "https://sedeaplicaciones.minetur.gob.es/ServiciosRESTCarburantes/PreciosCarburantes/Listados/Provincias"
+          probe "United Consumers NL" "https://www.unitedconsumers.com/tanken/brandstofprijzen"
+          exit $fail
