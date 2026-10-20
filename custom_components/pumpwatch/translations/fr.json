@@ -44,8 +44,7 @@
         },
         "description": "Configuration des capteurs de prix des carburants PumpWatch (Carbu.com, Mazout.com et sources nationales)."
       }
-    },
-    "title": "PumpWatch"
+    }
   },
   "options": {
     "error": {

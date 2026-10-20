@@ -1,6 +1,5 @@
 {
     "config": {
-        "title": "PumpWatch",
         "step": {
             "user": {
                 "description": "Set up PumpWatch fuel price sensors (Carbu.com, Mazout.com and national price sources).",

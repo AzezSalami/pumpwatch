@@ -12,7 +12,6 @@
   "issue_tracker": "https://github.com/azezsalami/pumpwatch/issues",
   "requirements": [
     "beautifulsoup4",
-    "requests",
     "ratelimit"
   ],
   "version": "1.0.0"

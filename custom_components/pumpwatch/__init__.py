@@ -5,6 +5,7 @@ from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import Platform
 from homeassistant.core import HomeAssistant, ServiceCall, SupportsResponse
 from homeassistant.exceptions import ServiceValidationError
+import homeassistant.helpers.config_validation as cv
 from homeassistant.helpers.typing import ConfigType
 
 from .utils import check_settings, FuelType, ComponentSession
@@ -21,6 +22,8 @@ SERVICES = [
 ]
 
 _LOGGER = logging.getLogger(DOMAIN)
+
+CONFIG_SCHEMA = cv.config_entry_only_config_schema(DOMAIN)
 
 
 async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:

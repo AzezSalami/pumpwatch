@@ -44,8 +44,7 @@
         },
         "description": "Configureer PumpWatch brandstofprijssensoren (Carbu.com, Mazout.com en nationale bronnen)."
       }
-    },
-    "title": "PumpWatch"
+    }
   },
   "options": {
     "error": {
