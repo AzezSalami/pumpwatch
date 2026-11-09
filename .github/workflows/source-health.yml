@@ -16,7 +16,7 @@ jobs:
         run: |
           fail=0
           probe() {
-            code=$(curl -s -o /dev/null -w "%{http_code}" -A "Mozilla/5.0" --max-time 30 "$2")
+            code=$(curl -sL -o /dev/null -w "%{http_code}" -A "Mozilla/5.0" --max-time 30 "$2")
             echo "$1 -> HTTP $code"
             [ "$code" = "200" ] || fail=1
           }
